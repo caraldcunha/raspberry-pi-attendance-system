@@ -3,6 +3,7 @@ import os
 from datetime import datetime
 
 def mark_attendance(name):
+    # Create data folder if it doesn't exist
     os.makedirs('data', exist_ok=True)
 
     file_path = 'data/attendance.csv'
@@ -11,6 +12,7 @@ def mark_attendance(name):
     with open(file_path, 'a', newline='') as file:
         writer = csv.writer(file)
 
+        # Write header only once
         if not file_exists:
             writer.writerow(['Name', 'Date', 'Time'])
 
